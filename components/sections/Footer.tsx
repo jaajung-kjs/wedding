@@ -3,6 +3,12 @@
 import { motion } from 'framer-motion';
 import { WEDDING_INFO } from '@/lib/constants';
 
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+
 export default function Footer() {
   const { groom, bride, date, venue } = WEDDING_INFO;
   const weddingDate = new Date(date);
