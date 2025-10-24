@@ -16,7 +16,7 @@ export default function Location() {
 
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = `https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_CLIENT_ID}`;
+    script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${process.env.NEXT_PUBLIC_NAVER_CLIENT_ID}`;
     script.async = true;
     document.head.appendChild(script);
 
@@ -57,7 +57,7 @@ export default function Location() {
     };
 
     return () => {
-      const existingScript = document.querySelector('script[src*="openapi.map.naver.com"]');
+      const existingScript = document.querySelector('script[src*="oapi.map.naver.com"]');
       if (existingScript) {
         document.head.removeChild(existingScript);
       }
