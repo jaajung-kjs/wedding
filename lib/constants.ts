@@ -1,46 +1,46 @@
 // 결혼식 정보
 export const WEDDING_INFO = {
   groom: {
-    name: '김철수',
-    father: '김아버지',
-    mother: '김어머니',
-    phone: '010-1234-5678',
+    name: '김준성',
+    father: '김익주',
+    mother: '김혜란',
+    phone: '010-2017-9092',
   },
   bride: {
-    name: '이영희',
-    father: '이아버지',
-    mother: '이어머니',
-    phone: '010-9876-5432',
+    name: '김여진',
+    father: '김길찬',
+    mother: '강해경',
+    phone: '010-2991-7175',
   },
-  date: '2025-06-14T14:00:00',
+  date: '2025-02-01T12:30:00',
   venue: {
     name: '브라이드밸리',
-    address: '서울특별시 서초구 강남대로 213 (양재동)',
-    floor: '양재점',
-    phone: '02-579-9000',
-    lat: 37.4844,
-    lng: 127.0344,
+    address: '서울특별시 강남구 강남대로 262',
+    floor: '지하1층',
+    phone: '02-2058-0406',
+    lat: 37.4869,
+    lng: 127.0333,
   },
   accounts: {
     groom: {
-      bank: '신한은행',
-      account: '110-123-456789',
-      holder: '김철수',
+      bank: '국민은행',
+      account: '703001-01-433280',
+      holder: '김준성',
     },
     bride: {
-      bank: '국민은행',
+      bank: '신한은행',
       account: '987-654-321012',
-      holder: '이영희',
+      holder: '김여진',
     },
     groomFather: {
       bank: '우리은행',
       account: '1002-123-456789',
-      holder: '김아버지',
+      holder: '김길찬',
     },
     brideFather: {
       bank: 'IBK기업은행',
       account: '123-456789-01-012',
-      holder: '이아버지',
+      holder: '강해경',
     },
   },
 };
@@ -62,7 +62,7 @@ ${WEDDING_INFO.bride.father} · ${WEDDING_INFO.bride.mother}의 장녀 ${WEDDING
 // 타임라인
 export const TIMELINE = [
   {
-    date: '2020.03',
+    date: '2015.05',
     title: '첫 만남',
     description: '우연한 인연으로 만나게 되었습니다',
     image: '/images/timeline/1.jpg',
@@ -74,7 +74,7 @@ export const TIMELINE = [
     image: '/images/timeline/2.jpg',
   },
   {
-    date: '2025.06',
+    date: '2026.02',
     title: '결혼',
     description: '새로운 시작을 함께합니다',
     image: '/images/timeline/3.jpg',
@@ -97,12 +97,11 @@ export const GALLERY_IMAGES = [
 // 교통편 안내
 export const TRANSPORTATION = {
   subway: [
-    '신분당선 양재역 6번 출구 도보 1분',
-    '3호선 양재역 6번 출구 도보 1분',
+    '양재역 3번 출구 도보 2분',
   ],
   bus: [
-    '간선: 400, 405, 440, 441, 462',
-    '지선: 3422, 4432',
+    '간선: 140, 314, 400, 402, 421, 440, 441, 452, 470, 641, 741, 917',
+    '직행: 1550, 1570, 3002, 3007, 3030, 3100, 4401, 4402, 9700',
   ],
-  parking: '건물 지하 주차장 이용 가능 (무료)',
+  parking: '도곡동 캠코 양재타워 주차장 인포데스크에서 차량번호 등록 (무료주차 2시간, 혼주주차 4시간)',
 };
