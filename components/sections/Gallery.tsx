@@ -2,69 +2,173 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 import { GALLERY_IMAGES } from '@/lib/constants';
-import Lightbox from '@/components/ui/Lightbox';
 
 export default function Gallery() {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const openLightbox = (index: number) => {
-    setCurrentIndex(index);
-    setLightboxOpen(true);
+    setSelectedImage(index);
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+  };
+
+  const goToPrevious = () => {
+    if (selectedImage !== null && selectedImage > 0) {
+      setSelectedImage(selectedImage - 1);
+    }
+  };
+
+  const goToNext = () => {
+    if (selectedImage !== null && selectedImage < GALLERY_IMAGES.length - 1) {
+      setSelectedImage(selectedImage + 1);
+    }
   };
 
   return (
-    <section className="bg-gradient-to-b from-white to-primary py-20 md:py-32">
+    <section className="bg-secondary py-20 px-4">
       <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-        variants={staggerContainer}
-        className="mx-auto max-w-6xl px-6"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+        className="mx-auto max-w-4xl"
       >
-        {/* Section Title */}
+        {/* Title */}
         <motion.h2
-          variants={fadeInUp}
-          className="heading-lg mb-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="mb-12 text-center font-serif text-2xl font-semibold tracking-wider text-text-primary"
         >
-          Gallery
+          GALLERY
         </motion.h2>
 
         {/* Gallery Grid */}
         <motion.div
-          variants={staggerContainer}
-          className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="grid grid-cols-3 gap-1"
         >
           {GALLERY_IMAGES.map((image, index) => (
             <motion.div
               key={index}
-              variants={staggerItem}
-              whileHover={{ scale: 1.05, y: -8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 * index, duration: 0.5 }}
               onClick={() => openLightbox(index)}
-              className="group relative aspect-square cursor-pointer overflow-hidden rounded-lg shadow-md transition-shadow hover:shadow-xl"
+              className="group relative aspect-[3/4] cursor-pointer overflow-hidden bg-white"
             >
-              {/* Placeholder until image is added */}
-              <div className="flex h-full items-center justify-center bg-secondary text-text-secondary">
-                <p className="text-sm">Photo {index + 1}</p>
+              {/* Placeholder */}
+              <div className="flex h-full items-center justify-center bg-gray-100 text-sm text-text-secondary transition-all group-hover:bg-gray-200">
+                Photo {index + 1}
               </div>
-
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
             </motion.div>
           ))}
         </motion.div>
       </motion.div>
 
       {/* Lightbox */}
-      {lightboxOpen && (
-        <Lightbox
-          images={GALLERY_IMAGES}
-          currentIndex={currentIndex}
-          onClose={() => setLightboxOpen(false)}
-          onNavigate={setCurrentIndex}
-        />
+      {selectedImage !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
+          onClick={closeLightbox}
+        >
+          {/* Close Button */}
+          <button
+            onClick={closeLightbox}
+            className="absolute right-4 top-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+            aria-label="Close"
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          {/* Previous Button */}
+          {selectedImage > 0 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                goToPrevious();
+              }}
+              className="absolute left-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              aria-label="Previous"
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+          )}
+
+          {/* Next Button */}
+          {selectedImage < GALLERY_IMAGES.length - 1 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                goToNext();
+              }}
+              className="absolute right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              aria-label="Next"
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          )}
+
+          {/* Image Container */}
+          <div
+            className="relative mx-4 max-h-[90vh] max-w-[90vw]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Placeholder */}
+            <div className="flex h-96 w-96 items-center justify-center rounded-lg bg-gray-800 text-white">
+              <p>Photo {selectedImage + 1}</p>
+            </div>
+
+            {/* Counter */}
+            <div className="mt-4 text-center text-sm text-white">
+              {selectedImage + 1} / {GALLERY_IMAGES.length}
+            </div>
+          </div>
+        </div>
       )}
     </section>
   );

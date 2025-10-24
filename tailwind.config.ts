@@ -9,11 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#F5F1ED",
-        secondary: "#E8DDD3",
-        accent: "#C9A690",
-        "text-primary": "#2C2C2C",
-        "text-secondary": "#6B6B6B",
+        background: "#FAFAF8",
+        primary: "#F5F0E8",
+        secondary: "#F9F6F1",
+        accent: "#C9A882",
+        "text-primary": "#4A4A4A",
+        "text-secondary": "#8B8B8B",
+        divider: "#E8E4DC",
       },
       fontFamily: {
         serif: ["Playfair Display", "Nanum Myeongjo", "serif"],

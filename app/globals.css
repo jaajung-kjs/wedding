@@ -7,11 +7,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
 
 :root {
-  --primary: #F5F1ED;
-  --secondary: #E8DDD3;
-  --accent: #C9A690;
-  --text-primary: #2C2C2C;
-  --text-secondary: #6B6B6B;
+  /* Phase 1: Lighter, warmer color palette */
+  --background: #FAFAF8;
+  --primary: #F5F0E8;
+  --secondary: #F9F6F1;
+  --accent: #C9A882;
+  --text-primary: #4A4A4A;
+  --text-secondary: #8B8B8B;
+  --divider: #E8E4DC;
 
   /* Animation Timing */
   --ease-elegant: cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -35,7 +38,7 @@ html {
 body {
   font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   color: var(--text-primary);
-  background: var(--primary);
+  background: var(--background);
   overflow-x: hidden;
 }
 
@@ -56,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--primary);
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -65,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b89580;
+  background: #B89771;
 }
 
 /* Utility Classes */
@@ -118,16 +121,16 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Section Spacing */
+/* Section Spacing - Phase 1: More breathing room */
 section {
-  padding: 4rem 1rem;
+  padding: 5rem 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   section {
-    padding: 6rem 2rem;
+    padding: 8rem 2rem;
   }
 }
 
@@ -152,5 +155,6 @@ section {
 
 .body-text {
   font-size: clamp(0.875rem, 3vw, 1.125rem);
-  line-height: 1.7;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
 }
