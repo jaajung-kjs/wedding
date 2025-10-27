@@ -27,7 +27,7 @@ export default function Hero() {
   return (
     <section className="relative flex h-screen items-center justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-white">
       {/* Background Image */}
-      <div className="fixed inset-0 h-screen w-screen">
+      <div className="absolute inset-0">
         <Image
           src="/images/hero/couple-optimized.webp"
           alt="Wedding couple"
@@ -39,7 +39,7 @@ export default function Hero() {
       </div>
 
       {/* Background overlay */}
-      <div className="fixed inset-0 h-screen w-screen bg-white/60" />
+      <div className="absolute inset-0 bg-white/60" />
 
       {/* Content */}
       <motion.div
