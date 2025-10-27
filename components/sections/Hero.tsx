@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { WEDDING_INFO } from '@/lib/constants';
 
 export default function Hero() {
@@ -25,19 +24,15 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex h-screen items-center justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-white">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero/couple-optimized.webp"
-          alt="Wedding couple"
-          fill
-          priority
-          className="object-cover"
-          quality={90}
-        />
-      </div>
-
+    <section
+      className="relative flex h-screen items-center justify-center overflow-hidden"
+      style={{
+        backgroundImage: 'url(/images/hero/couple-optimized.webp)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       {/* Background overlay */}
       <div className="absolute inset-0 bg-white/60" />
 
