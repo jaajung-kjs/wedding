@@ -40,7 +40,8 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1 }}
-          className="mb-8 font-serif text-4xl font-bold tracking-wide text-text-primary md:text-5xl"
+          className="mb-8 whitespace-nowrap font-serif font-bold tracking-wide text-text-primary"
+          style={{ fontSize: 'clamp(1.75rem, 8vw, 3rem)' }}
         >
           {groom.name} ♥ {bride.name}
         </motion.h1>

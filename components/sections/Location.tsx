@@ -145,46 +145,41 @@ export default function Location() {
           </button>
         </motion.div>
 
-        {/* Kakao Map */}
+        {/* Map Container with Padding */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="mb-6 overflow-hidden rounded-2xl shadow-lg"
+          className="mb-12 rounded-2xl bg-secondary/50 p-6 shadow-lg"
         >
+          {/* Naver Map */}
           <div
             ref={mapRef}
-            className="h-[400px] w-full"
+            className="mb-4 h-[300px] w-full overflow-hidden rounded-xl"
           />
-        </motion.div>
 
-        {/* Map App Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="mb-12 flex justify-center gap-3"
-        >
-          <button
-            onClick={openNaverMap}
-            className="flex items-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105"
-          >
-            <span className="flex h-6 w-6 items-center justify-center rounded bg-white text-xs font-bold text-green-600">
-              N
-            </span>
-            <span>네이버</span>
-          </button>
-          <button
-            onClick={openKakaoMap}
-            className="flex items-center gap-2 rounded-full bg-yellow-500 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105"
-          >
-            <span className="flex h-6 w-6 items-center justify-center rounded bg-white text-xs font-bold text-yellow-600">
-              K
-            </span>
-            <span>카카오맵</span>
-          </button>
+          {/* Map App Buttons */}
+          <div className="flex justify-center gap-3">
+            <button
+              onClick={openNaverMap}
+              className="flex items-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105"
+            >
+              <span className="flex h-6 w-6 items-center justify-center rounded bg-white text-xs font-bold text-green-600">
+                N
+              </span>
+              <span>네이버</span>
+            </button>
+            <button
+              onClick={openKakaoMap}
+              className="flex items-center gap-2 rounded-full bg-yellow-500 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105"
+            >
+              <span className="flex h-6 w-6 items-center justify-center rounded bg-white text-xs font-bold text-yellow-600">
+                K
+              </span>
+              <span>카카오맵</span>
+            </button>
+          </div>
         </motion.div>
 
         {/* Transportation Info */}
