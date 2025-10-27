@@ -60,33 +60,33 @@ export default function Hero() {
             {formatTime()}
           </p>
         </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.9, duration: 1 }}
-          className="absolute bottom-24 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-            className="text-sm tracking-widest text-text-secondary"
-          >
-            SCROLL
-          </motion.div>
-        </motion.div>
-
-        {/* Venue */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 text-lg text-text-secondary"
-        >
-          {venue.name}
-        </motion.p>
       </motion.div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.9, duration: 1 }}
+        className="absolute bottom-20 left-1/2 z-10 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+          className="text-sm tracking-widest text-text-secondary"
+        >
+          SCROLL
+        </motion.div>
+      </motion.div>
+
+      {/* Venue */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-lg text-text-secondary"
+      >
+        {venue.name}
+      </motion.p>
     </section>
   );
 }
