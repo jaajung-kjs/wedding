@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { WEDDING_INFO } from '@/lib/constants';
 
 export default function Hero() {
@@ -25,8 +26,20 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-white">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero/couple.png"
+          alt="Wedding couple"
+          fill
+          priority
+          className="object-cover"
+          quality={90}
+        />
+      </div>
+
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-white/40" />
+      <div className="absolute inset-0 bg-white/80" />
 
       {/* Content */}
       <motion.div
@@ -40,8 +53,11 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1 }}
-          className="mb-8 whitespace-nowrap font-serif font-bold tracking-wide text-text-primary"
-          style={{ fontSize: 'clamp(1.75rem, 8vw, 3rem)' }}
+          className="mb-8 whitespace-nowrap font-serif font-bold tracking-wide text-gray-900"
+          style={{
+            fontSize: 'clamp(1.75rem, 8vw, 3rem)',
+            textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}
         >
           {groom.name} ♥ {bride.name}
         </motion.h1>
@@ -53,10 +69,16 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 1 }}
           className="mb-8 space-y-2"
         >
-          <p className="text-lg tracking-widest text-text-secondary">
+          <p
+            className="text-lg tracking-widest text-gray-700"
+            style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+          >
             {formatDate()}
           </p>
-          <p className="font-serif text-3xl font-light tracking-wider text-text-primary">
+          <p
+            className="font-serif text-3xl font-light tracking-wider text-gray-900"
+            style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+          >
             {formatTime()}
           </p>
         </motion.div>
@@ -66,7 +88,8 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 1 }}
-          className="text-lg text-text-secondary"
+          className="text-lg text-gray-700"
+          style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
         >
           {venue.name}
         </motion.p>
@@ -82,7 +105,8 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
-          className="text-sm tracking-widest text-text-secondary"
+          className="text-sm tracking-widest text-gray-700"
+          style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
         >
           SCROLL
         </motion.div>

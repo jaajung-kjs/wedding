@@ -29,18 +29,18 @@ export const WEDDING_INFO = {
     },
     bride: {
       bank: '신한은행',
-      account: '987-654-321012',
+      account: '110-442-225618',
       holder: '김여진',
     },
     groomFather: {
       bank: '우리은행',
       account: '1002-123-456789',
-      holder: '김길찬',
+      holder: '김익주',
     },
     brideFather: {
       bank: '기업은행',
-      account: '123-456789-01-012',
-      holder: '강해경',
+      account: '010-8745-7175',
+      holder: '김길찬',
     },
   },
 };
