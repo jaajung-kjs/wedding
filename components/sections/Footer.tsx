@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { WEDDING_INFO } from '@/lib/constants';
+import { WEDDING_INFO, PROFILE } from '@/lib/constants';
 
 declare global {
   interface Window {
@@ -67,9 +67,9 @@ export default function Footer() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="mb-8"
+          className="mb-4"
         >
-          <div className="mb-4 text-5xl">💐</div>
+          <div className="text-5xl">💐</div>
         </motion.div>
 
         {/* Thank You Message */}
@@ -78,24 +78,79 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="mb-4 font-serif text-3xl font-semibold text-text-primary"
+          className="mb-12 font-serif text-3xl font-semibold text-text-primary"
         >
           Thank you
         </motion.h2>
 
-        {/* Names & Date */}
+        {/* Profile Cards */}
+        <div className="mb-8 grid grid-cols-2 gap-6">
+          {/* Groom */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex flex-col items-center"
+          >
+            <div className="mb-3 h-32 w-32 overflow-hidden rounded-2xl bg-gray-200">
+              <div className="flex h-full items-center justify-center text-sm text-text-secondary">
+                Photo
+              </div>
+            </div>
+            <div className="mb-2 flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-text-primary">{PROFILE.groom.title}</h3>
+              <span className="text-base font-semibold text-accent">{PROFILE.groom.name}</span>
+              <a href={`tel:${PROFILE.groom.phone}`} className="text-accent">
+                📞
+              </a>
+            </div>
+            <div className="space-y-1 text-center text-sm text-text-secondary">
+              <p>{PROFILE.groom.birth}</p>
+              <p>{PROFILE.groom.location}</p>
+              <p>{PROFILE.groom.job}</p>
+            </div>
+          </motion.div>
+
+          {/* Bride */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="flex flex-col items-center"
+          >
+            <div className="mb-3 h-32 w-32 overflow-hidden rounded-2xl bg-gray-200">
+              <div className="flex h-full items-center justify-center text-sm text-text-secondary">
+                Photo
+              </div>
+            </div>
+            <div className="mb-2 flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-text-primary">{PROFILE.bride.title}</h3>
+              <span className="text-base font-semibold text-accent">{PROFILE.bride.name}</span>
+              <a href={`tel:${PROFILE.bride.phone}`} className="text-accent">
+                📞
+              </a>
+            </div>
+            <div className="space-y-1 text-center text-sm text-text-secondary">
+              <p>{PROFILE.bride.birth}</p>
+              <p>{PROFILE.bride.location}</p>
+              <p>{PROFILE.bride.job}</p>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Message */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="mb-8"
+          transition={{ delay: 1, duration: 0.8 }}
+          className="mb-12 text-center"
         >
-          <p className="mb-2 text-lg text-text-primary">
-            {groom.name} & {bride.name}
+          <p className="whitespace-pre-line text-base font-medium text-text-primary">
+            {PROFILE.message}
           </p>
-          <p className="text-sm text-text-secondary">{formatDate()}</p>
-          <p className="text-sm text-text-secondary">{venue.name}</p>
         </motion.div>
 
         {/* Share Buttons */}

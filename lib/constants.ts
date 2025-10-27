@@ -104,3 +104,24 @@ export const TRANSPORTATION = {
   ],
   parking: '도곡동 캠코 양재타워 주차장 인포데스크에서 차량번호 등록 (무료주차 2시간)',
 };
+
+// 프로필 정보
+export const PROFILE = {
+  groom: {
+    title: '신랑',
+    name: WEDDING_INFO.groom.name,
+    phone: WEDDING_INFO.groom.phone,
+    birth: '96년 8월 17일',
+    location: '서울 광진구',
+    job: '한국전력',
+  },
+  bride: {
+    title: '신부',
+    name: WEDDING_INFO.bride.name,
+    phone: WEDDING_INFO.bride.phone,
+    birth: '96년 6월 14일',
+    location: '경기도 성남',
+    job: '수학강사',
+  },
+  message: '저희 행복하게\n잘 살겠습니다:)',
+};
