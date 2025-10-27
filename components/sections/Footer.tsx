@@ -1,30 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { WEDDING_INFO, PROFILE } from '@/lib/constants';
-
-declare global {
-  interface Window {
-    Kakao: any;
-  }
-}
+import { PROFILE } from '@/lib/constants';
 
 export default function Footer() {
-  const { groom, bride, date, venue } = WEDDING_INFO;
-  const weddingDate = new Date(date);
-
-  const formatDate = () => {
-    const year = weddingDate.getFullYear();
-    const month = weddingDate.getMonth() + 1;
-    const day = weddingDate.getDate();
-    const days = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
-    const dayOfWeek = days[weddingDate.getDay()];
-    const hours = weddingDate.getHours();
-    const minutes = String(weddingDate.getMinutes()).padStart(2, '0');
-
-    return `${year}년 ${month}월 ${day}일 ${dayOfWeek} 오후 ${hours}시 ${minutes}분`;
-  };
-
   const calculateTimeTogether = () => {
     const startDate = new Date('2015-05-26');
     const today = new Date();
@@ -45,28 +24,6 @@ export default function Footer() {
     }
 
     return `${years}년 ${months}개월 ${days}일`;
-  };
-
-  const shareKakao = () => {
-    if (typeof window !== 'undefined' && window.Kakao) {
-      if (!window.Kakao.isInitialized()) {
-        window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_KEY || 'YOUR_KAKAO_KEY');
-      }
-      window.Kakao.Link.sendDefault({
-        objectType: 'feed',
-        content: {
-          title: `${groom.name} ♥ ${bride.name} 결혼합니다`,
-          description: `${formatDate()}\n${venue.name}`,
-          imageUrl: window.location.origin + '/images/og-image.jpg',
-          link: {
-            mobileWebUrl: window.location.href,
-            webUrl: window.location.href,
-          },
-        },
-      });
-    } else {
-      alert('카카오톡 공유 기능을 사용할 수 없습니다.');
-    }
   };
 
   const copyLink = () => {
@@ -105,93 +62,12 @@ export default function Footer() {
           Thank you
         </motion.h2>
 
-        {/* Profile Cards */}
-        <div className="mb-8 grid grid-cols-2 gap-6">
-          {/* Groom */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-col items-center"
-          >
-            <div className="mb-3 h-32 w-32 overflow-hidden rounded-2xl bg-gray-200">
-              <div className="flex h-full items-center justify-center text-sm text-text-secondary">
-                Photo
-              </div>
-            </div>
-            <div className="mb-2 flex items-center gap-2">
-              <h3 className="text-lg font-semibold text-text-primary">{PROFILE.groom.title}</h3>
-              <span className="text-base font-semibold text-accent">{PROFILE.groom.name}</span>
-              <a
-                href={PROFILE.groom.kakaoLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-yellow-400"
-              >
-                <svg
-                  className="h-3 w-3 text-brown-800"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z" />
-                </svg>
-              </a>
-            </div>
-            <div className="space-y-1 text-center text-sm text-text-secondary">
-              <p>{PROFILE.groom.birth}</p>
-              <p>{PROFILE.groom.location}</p>
-              <p>{PROFILE.groom.job}</p>
-            </div>
-          </motion.div>
-
-          {/* Bride */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="flex flex-col items-center"
-          >
-            <div className="mb-3 h-32 w-32 overflow-hidden rounded-2xl bg-gray-200">
-              <div className="flex h-full items-center justify-center text-sm text-text-secondary">
-                Photo
-              </div>
-            </div>
-            <div className="mb-2 flex items-center gap-2">
-              <h3 className="text-lg font-semibold text-text-primary">{PROFILE.bride.title}</h3>
-              <span className="text-base font-semibold text-accent">{PROFILE.bride.name}</span>
-              {PROFILE.bride.kakaoLink && (
-                <a
-                  href={PROFILE.bride.kakaoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-yellow-400"
-                >
-                  <svg
-                    className="h-3 w-3 text-brown-800"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z" />
-                  </svg>
-                </a>
-              )}
-            </div>
-            <div className="space-y-1 text-center text-sm text-text-secondary">
-              <p>{PROFILE.bride.birth}</p>
-              <p>{PROFILE.bride.location}</p>
-              <p>{PROFILE.bride.job}</p>
-            </div>
-          </motion.div>
-        </div>
-
         {/* Time Together */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 1, duration: 0.8 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
           className="mb-6 text-center"
         >
           <p className="text-sm text-text-secondary">
@@ -204,7 +80,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 1.2, duration: 0.8 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
           className="mb-12 text-center"
         >
           <p className="whitespace-pre-line text-base font-medium text-text-primary">
@@ -217,7 +93,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.8 }}
+          transition={{ delay: 1.0, duration: 0.8 }}
           className="mb-12 flex justify-center"
         >
           <button

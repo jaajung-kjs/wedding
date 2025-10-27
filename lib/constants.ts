@@ -114,7 +114,7 @@ export const PROFILE = {
     kakaoLink: 'https://qr.kakao.com/talk/iSSAjx8uVh0ndGjbOwgdoItouIQ-',
     birth: '96년 8월 17일',
     location: '서울 광진구',
-    job: '한국전력',
+    job: '한국전력공사',
   },
   bride: {
     title: '신부',
@@ -123,7 +123,7 @@ export const PROFILE = {
     kakaoLink: 'https://qr.kakao.com/talk/oozpmla6g3zWex2oCcljmTPCSFs-',
     birth: '96년 6월 14일',
     location: '경기도 성남',
-    job: '수학강사',
+    job: '고등부 수학 강사',
   },
   message: '저희 행복하게\n잘 살겠습니다:)',
 };
