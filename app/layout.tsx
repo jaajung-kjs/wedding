@@ -5,10 +5,10 @@ import { WEDDING_INFO } from '@/lib/constants';
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://wedding-jaajung-kjs.vercel.app'),
   title: `${WEDDING_INFO.groom.name} ♥ ${WEDDING_INFO.bride.name} 결혼합니다`,
-  description: '2025년 6월 14일 토요일 오후 2시 | 저희 두 사람의 소중한 날에 초대합니다',
+  description: '2026년 2월 1일 일요일 오후 12시 30분 | 브라이드밸리 | 저희 두 사람의 소중한 날에 초대합니다',
   openGraph: {
     title: `${WEDDING_INFO.groom.name} ♥ ${WEDDING_INFO.bride.name} 결혼합니다`,
-    description: '저희 두 사람의 소중한 날에 초대합니다',
+    description: '2026년 2월 1일 일요일 오후 12시 30분 | 브라이드밸리',
     images: ['/images/og-image.jpg'],
     locale: 'ko_KR',
     type: 'website',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: `${WEDDING_INFO.groom.name} ♥ ${WEDDING_INFO.bride.name} 결혼합니다`,
-    description: '저희 두 사람의 소중한 날에 초대합니다',
+    description: '2026년 2월 1일 일요일 오후 12시 30분 | 브라이드밸리',
     images: ['/images/og-image.jpg'],
   },
   icons: {
