@@ -25,9 +25,9 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-white">
+    <section className="relative flex h-screen items-center justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-white">
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 h-screen">
         <Image
           src="/images/hero/couple-optimized.webp"
           alt="Wedding couple"
@@ -35,11 +35,12 @@ export default function Hero() {
           priority
           className="object-cover"
           quality={90}
+          style={{ position: 'absolute', height: '100vh', width: '100%' }}
         />
       </div>
 
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-white/60" />
+      <div className="absolute inset-0 h-screen bg-white/60" />
 
       {/* Content */}
       <motion.div
