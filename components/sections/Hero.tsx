@@ -29,7 +29,7 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero/couple.png"
+          src="/images/hero/couple-optimized.webp"
           alt="Wedding couple"
           fill
           priority
