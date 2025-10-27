@@ -93,6 +93,18 @@ export default function Location() {
     }
   };
 
+  const openTMap = () => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = `tmap://route?rGoName=${encodeURIComponent(venue.name)}&rGoX=${venue.lng}&rGoY=${venue.lat}`;
+      setTimeout(() => {
+        window.open(`https://tmap.life/bc75c60c`, '_blank');
+      }, 1000);
+    } else {
+      window.open(`https://tmap.life/bc75c60c`, '_blank');
+    }
+  };
+
   return (
     <section className="bg-white py-20 px-6">
       <motion.div
@@ -160,24 +172,33 @@ export default function Location() {
           />
 
           {/* Map App Buttons */}
-          <div className="flex justify-center gap-3">
+          <div className="flex justify-center gap-2">
             <button
               onClick={openNaverMap}
-              className="flex items-center gap-2 whitespace-nowrap rounded-full bg-green-600 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105"
+              className="flex items-center gap-1.5 whitespace-nowrap rounded-full bg-green-600 px-4 py-2.5 text-sm font-medium text-white transition-transform hover:scale-105"
             >
-              <span className="flex h-6 w-6 items-center justify-center rounded bg-white text-xs font-bold text-green-600">
+              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-white text-[10px] font-bold text-green-600">
                 N
               </span>
-              <span>네이버</span>
+              네이버
             </button>
             <button
               onClick={openKakaoMap}
-              className="flex items-center gap-2 whitespace-nowrap rounded-full bg-yellow-500 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105"
+              className="flex items-center gap-1.5 whitespace-nowrap rounded-full bg-yellow-500 px-4 py-2.5 text-sm font-medium text-white transition-transform hover:scale-105"
             >
-              <span className="flex h-6 w-6 items-center justify-center rounded bg-white text-xs font-bold text-yellow-600">
+              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-white text-[10px] font-bold text-yellow-600">
                 K
               </span>
-              <span>카카오맵</span>
+              카카오
+            </button>
+            <button
+              onClick={openTMap}
+              className="flex items-center gap-1.5 whitespace-nowrap rounded-full bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-transform hover:scale-105"
+            >
+              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-white text-[10px] font-bold text-blue-600">
+                T
+              </span>
+              티맵
             </button>
           </div>
         </motion.div>
@@ -192,7 +213,7 @@ export default function Location() {
         >
           {/* Subway */}
           <div className="text-center">
-            <h4 className="mb-3 font-semibold text-text-primary">지하철</h4>
+            <h4 className="mb-3 font-semibold text-text-primary">🚇 지하철</h4>
             {TRANSPORTATION.subway.map((line, index) => (
               <p key={index} className="text-sm leading-relaxed text-text-secondary">
                 {line}
@@ -202,7 +223,7 @@ export default function Location() {
 
           {/* Bus */}
           <div className="text-center">
-            <h4 className="mb-3 font-semibold text-text-primary">버스</h4>
+            <h4 className="mb-3 font-semibold text-text-primary">🚌 버스</h4>
             {TRANSPORTATION.bus.map((line, index) => (
               <p key={index} className="text-sm leading-relaxed text-text-secondary">
                 {line}
@@ -212,7 +233,7 @@ export default function Location() {
 
           {/* Parking */}
           <div className="text-center">
-            <h4 className="mb-3 font-semibold text-text-primary">자차</h4>
+            <h4 className="mb-3 font-semibold text-text-primary">🚗 자차</h4>
             <p className="text-sm leading-relaxed text-text-secondary">
               {TRANSPORTATION.parking}
             </p>

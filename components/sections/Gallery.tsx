@@ -72,6 +72,17 @@ export default function Gallery() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Instruction Text */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="mt-6 text-center text-sm text-text-secondary"
+        >
+          사진을 클릭하시면 전체 화면 보기가 가능합니다
+        </motion.p>
       </motion.div>
 
       {/* Lightbox */}

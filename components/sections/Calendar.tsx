@@ -194,6 +194,23 @@ export default function Calendar() {
             })}
           </div>
         </motion.div>
+
+        {/* D-day Counter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="mt-8 text-center"
+        >
+          <p className="text-base text-text-primary">
+            준성 ♥ 여진 결혼식이{' '}
+            <span className="font-semibold text-accent">
+              {Math.max(0, Math.ceil((weddingDate.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)))}일
+            </span>{' '}
+            남았습니다
+          </p>
+        </motion.div>
       </motion.div>
     </section>
   );

@@ -48,15 +48,14 @@ export const WEDDING_INFO = {
 // 인사말
 export const GREETING = {
   title: '소중한 분들을 초대합니다',
-  message: `저희 두 사람이 사랑으로 하나되어
-새로운 인생을 시작하려 합니다.
-
-서로 이해하고 배려하며
-평생을 함께 살겠다는 약속,
-귀한 걸음으로 오시어 축복해 주시면
-큰 기쁨으로 간직하겠습니다.`,
-  parents: `${WEDDING_INFO.groom.father} · ${WEDDING_INFO.groom.mother}의 장남 ${WEDDING_INFO.groom.name}
-${WEDDING_INFO.bride.father} · ${WEDDING_INFO.bride.mother}의 장녀 ${WEDDING_INFO.bride.name}`,
+  message: `함께한 만큼 더 좋은 날이 올 거라 믿으며
+우리는 10년 동안 늘 같은 꿈을 꿔왔습니다.
+반짝이는 이 마음이 영원히 빛날 수 있도록,
+따뜻한 축복으로 귀한 걸음하시어
+저희의 부부로서의 시작을 함께해 주세요.
+그 사랑을 마음에 품고 행복하게 살겠습니다.`,
+  parents: `${WEDDING_INFO.groom.father} · ${WEDDING_INFO.groom.mother}의 아들 ${WEDDING_INFO.groom.name}
+${WEDDING_INFO.bride.father} · ${WEDDING_INFO.bride.mother}의 딸 ${WEDDING_INFO.bride.name}`,
 };
 
 // 타임라인
