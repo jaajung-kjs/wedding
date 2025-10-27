@@ -61,22 +61,12 @@ export default function Hero() {
           </p>
         </motion.div>
 
-        {/* Venue */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.9, duration: 1 }}
-          className="text-lg text-text-secondary"
-        >
-          {venue.name}
-        </motion.p>
-
         {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2"
+          transition={{ delay: 0.9, duration: 1 }}
+          className="absolute bottom-24 left-1/2 -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -86,6 +76,16 @@ export default function Hero() {
             SCROLL
           </motion.div>
         </motion.div>
+
+        {/* Venue */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 1 }}
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 text-lg text-text-secondary"
+        >
+          {venue.name}
+        </motion.p>
       </motion.div>
     </section>
   );
