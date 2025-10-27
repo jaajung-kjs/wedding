@@ -156,14 +156,14 @@ export default function Location() {
           {/* Naver Map */}
           <div
             ref={mapRef}
-            className="mb-4 h-[300px] w-full overflow-hidden rounded-xl"
+            className="mb-4 h-[250px] w-full overflow-hidden rounded-xl"
           />
 
           {/* Map App Buttons */}
           <div className="flex justify-center gap-3">
             <button
               onClick={openNaverMap}
-              className="flex items-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105"
+              className="flex items-center gap-2 whitespace-nowrap rounded-full bg-green-600 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105"
             >
               <span className="flex h-6 w-6 items-center justify-center rounded bg-white text-xs font-bold text-green-600">
                 N
@@ -172,7 +172,7 @@ export default function Location() {
             </button>
             <button
               onClick={openKakaoMap}
-              className="flex items-center gap-2 rounded-full bg-yellow-500 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105"
+              className="flex items-center gap-2 whitespace-nowrap rounded-full bg-yellow-500 px-6 py-3 text-sm font-medium text-white transition-transform hover:scale-105"
             >
               <span className="flex h-6 w-6 items-center justify-center rounded bg-white text-xs font-bold text-yellow-600">
                 K
