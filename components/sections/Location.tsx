@@ -26,7 +26,7 @@ export default function Location() {
 
         const mapOptions = {
           center: position,
-          zoom: 16,
+          zoom: 15,
           zoomControl: false,
           zoomControlOptions: {
             style: window.naver.maps.ZoomControlStyle.SMALL,
