@@ -12,29 +12,32 @@ export default function Calendar() {
   const weekDays = ['일', '월', '화', '수', '목', '금', '토'];
   const weekDaysEn = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
-  // 1월 15일부터 2월 14일까지 표시
-  const startDate = new Date(year, 0, 15); // 1월 15일 (month는 0-based)
-  const endDate = new Date(year, 1, 14);   // 2월 14일
+  // 1월 18일부터 31일까지 표시
+  const januaryStartDate = new Date(year, 0, 18); // 1월 18일
+  const januaryFirstDayOfWeek = januaryStartDate.getDay();
 
-  // 시작일의 요일 (일요일=0)
-  const firstDayOfWeek = startDate.getDay();
-
-  // 달력 그리드 생성
-  const calendarDays = [];
-
+  const januaryDays = [];
   // 시작일 앞의 빈 칸
-  for (let i = 0; i < firstDayOfWeek; i++) {
-    calendarDays.push(null);
+  for (let i = 0; i < januaryFirstDayOfWeek; i++) {
+    januaryDays.push(null);
+  }
+  // 1월 18일부터 31일까지
+  for (let i = 18; i <= 31; i++) {
+    januaryDays.push({ day: i, month: 1 });
   }
 
-  // 1월 15일부터 31일까지
-  for (let i = 15; i <= 31; i++) {
-    calendarDays.push({ day: i, month: 1, isCurrentMonth: false });
-  }
+  // 2월 1일부터 14일까지 표시
+  const februaryStartDate = new Date(year, 1, 1); // 2월 1일
+  const februaryFirstDayOfWeek = februaryStartDate.getDay();
 
+  const februaryDays = [];
+  // 시작일 앞의 빈 칸
+  for (let i = 0; i < februaryFirstDayOfWeek; i++) {
+    februaryDays.push(null);
+  }
   // 2월 1일부터 14일까지
   for (let i = 1; i <= 14; i++) {
-    calendarDays.push({ day: i, month: 2, isCurrentMonth: true });
+    februaryDays.push({ day: i, month: 2 });
   }
 
   const formatDateTime = () => {
@@ -115,19 +118,55 @@ export default function Calendar() {
             ))}
           </div>
 
-          {/* Calendar Days */}
+          {/* January Calendar */}
           <div className="grid grid-cols-7 gap-2">
-            {calendarDays.map((dayData, index) => {
-              const isWeddingDay = dayData && dayData.day === day && dayData.month === 2;
+            {januaryDays.map((dayData, index) => {
               const dayOfWeek = index % 7;
               const isSunday = dayOfWeek === 0;
               const isSaturday = dayOfWeek === 6;
-              const isFirstDayOfMonth = dayData && dayData.day === 1 && dayData.month === 2;
 
               return (
                 <div
-                  key={index}
-                  className={`relative flex aspect-square flex-col items-center justify-center rounded-lg text-sm transition-all ${
+                  key={`jan-${index}`}
+                  className={`relative flex aspect-square items-center justify-center rounded-lg text-sm transition-all ${
+                    dayData === null ? '' : 'hover:bg-white'
+                  }`}
+                >
+                  {dayData !== null && (
+                    <span
+                      className={
+                        isSunday
+                          ? 'text-red-500/70'
+                          : isSaturday
+                            ? 'text-blue-500/70'
+                            : 'text-text-secondary/60'
+                      }
+                    >
+                      {dayData.day}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Month Divider */}
+          <div className="my-4 text-center">
+            <span className="text-base font-semibold text-accent">2월</span>
+          </div>
+
+          {/* February Calendar */}
+          <div className="grid grid-cols-7 gap-2">
+            {februaryDays.map((dayData, index) => {
+              const isWeddingDay = dayData && dayData.day === day;
+              const dayOfWeek = index % 7;
+              const isSunday = dayOfWeek === 0;
+              const isSaturday = dayOfWeek === 6;
+
+              return (
+                <div
+                  key={`feb-${index}`}
+                  className={`relative flex aspect-square items-center justify-center rounded-lg text-sm transition-all ${
                     dayData === null
                       ? ''
                       : isWeddingDay
@@ -136,28 +175,19 @@ export default function Calendar() {
                   }`}
                 >
                   {dayData !== null && (
-                    <>
-                      {isFirstDayOfMonth && (
-                        <span className="absolute -top-6 text-xs font-semibold text-accent">
-                          2월
-                        </span>
-                      )}
-                      <span
-                        className={
-                          isWeddingDay
-                            ? 'text-white'
-                            : isSunday
-                              ? 'text-red-500'
-                              : isSaturday
-                                ? 'text-blue-500'
-                                : dayData.month === 1
-                                  ? 'text-text-secondary/50'
-                                  : 'text-text-primary'
-                        }
-                      >
-                        {dayData.day}
-                      </span>
-                    </>
+                    <span
+                      className={
+                        isWeddingDay
+                          ? 'text-white'
+                          : isSunday
+                            ? 'text-red-500'
+                            : isSaturday
+                              ? 'text-blue-500'
+                              : 'text-text-primary'
+                      }
+                    >
+                      {dayData.day}
+                    </span>
                   )}
                 </div>
               );
