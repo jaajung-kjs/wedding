@@ -25,7 +25,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex h-screen items-center justify-center overflow-hidden"
+      className="relative flex h-screen items-start justify-center overflow-hidden pt-24"
       style={{
         backgroundImage: 'url(/images/hero/couple-optimized.webp)',
         backgroundSize: 'cover',
