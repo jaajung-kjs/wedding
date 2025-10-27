@@ -127,9 +127,15 @@ export default function Footer() {
                 href={PROFILE.groom.kakaoLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent"
+                className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-yellow-400"
               >
-                💬
+                <svg
+                  className="h-3 w-3 text-brown-800"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z" />
+                </svg>
               </a>
             </div>
             <div className="space-y-1 text-center text-sm text-text-secondary">
@@ -160,9 +166,15 @@ export default function Footer() {
                   href={PROFILE.bride.kakaoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-accent"
+                  className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-yellow-400"
                 >
-                  💬
+                  <svg
+                    className="h-3 w-3 text-brown-800"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z" />
+                  </svg>
                 </a>
               )}
             </div>
@@ -206,24 +218,8 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="mb-12 flex justify-center gap-3"
+          className="mb-12 flex justify-center"
         >
-          <button
-            onClick={shareKakao}
-            className="flex flex-col items-center gap-2 rounded-2xl bg-white p-4 shadow-sm transition-all hover:scale-105 hover:shadow-md"
-          >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-400">
-              <svg
-                className="h-6 w-6 text-brown-800"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z" />
-              </svg>
-            </div>
-            <span className="text-xs text-text-secondary">카카오톡</span>
-          </button>
-
           <button
             onClick={copyLink}
             className="flex flex-col items-center gap-2 rounded-2xl bg-white p-4 shadow-sm transition-all hover:scale-105 hover:shadow-md"
