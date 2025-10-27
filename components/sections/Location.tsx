@@ -151,12 +151,12 @@ export default function Location() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="mb-12 rounded-2xl bg-secondary/50 p-6 shadow-lg"
+          className="mx-auto mb-12 max-w-lg rounded-2xl bg-secondary/50 p-6 shadow-lg"
         >
           {/* Naver Map */}
           <div
             ref={mapRef}
-            className="mb-4 h-[250px] w-full overflow-hidden rounded-xl"
+            className="mb-4 h-[220px] w-full overflow-hidden rounded-xl"
           />
 
           {/* Map App Buttons */}
