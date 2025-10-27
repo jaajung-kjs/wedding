@@ -84,10 +84,10 @@ export default function Calendar() {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="mb-8 text-center"
         >
-          <p className="mb-1 text-lg font-medium text-text-primary">
+          <p className="mb-1 whitespace-nowrap text-lg font-medium text-text-primary">
             {dateTime.date} | {dateTime.time}
           </p>
-          <p className="text-sm text-text-secondary">
+          <p className="whitespace-nowrap text-sm text-text-secondary">
             {dateTime.dateEn} | {dateTime.timeEn}
           </p>
         </motion.div>
