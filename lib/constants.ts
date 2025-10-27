@@ -124,7 +124,7 @@ export const PROFILE = {
     kakaoLink: 'https://qr.kakao.com/talk/iSSAjx8uVh0ndGjbOwgdoItouIQ-',
     birth: '96년 8월 17일',
     location: '서울 광진구',
-    job: '한국전력공사',
+    job: 'ICT 엔지니어',
   },
   bride: {
     title: '신부',
