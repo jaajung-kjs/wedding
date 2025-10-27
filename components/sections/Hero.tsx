@@ -34,7 +34,7 @@ export default function Hero() {
       }}
     >
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-white/60" />
+      <div className="absolute inset-0 bg-white/0" />
 
       {/* Content */}
       <motion.div
@@ -48,10 +48,10 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1 }}
-          className="mb-8 whitespace-nowrap font-serif font-bold tracking-wide text-gray-900"
+          className="mb-8 whitespace-nowrap font-serif font-bold tracking-wide text-white"
           style={{
             fontSize: 'clamp(1.75rem, 8vw, 3rem)',
-            textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+            textShadow: '0 2px 8px rgba(0,0,0,0.6)'
           }}
         >
           {groom.name} ♥ {bride.name}
@@ -65,14 +65,14 @@ export default function Hero() {
           className="mb-4 space-y-2"
         >
           <p
-            className="text-lg tracking-widest text-gray-700"
-            style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+            className="text-lg tracking-widest text-white"
+            style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}
           >
             {formatDate()}
           </p>
           <p
-            className="font-serif text-3xl font-light tracking-wider text-gray-900"
-            style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+            className="font-serif text-3xl font-light tracking-wider text-white"
+            style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}
           >
             {formatTime()}
           </p>
@@ -83,8 +83,8 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 1 }}
-          className="text-lg text-gray-700"
-          style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+          className="text-lg text-white"
+          style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}
         >
           {venue.name}
         </motion.p>
@@ -100,8 +100,8 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
-          className="text-sm tracking-widest text-gray-700"
-          style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+          className="text-sm tracking-widest text-white"
+          style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}
         >
           SCROLL
         </motion.div>
