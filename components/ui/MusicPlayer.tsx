@@ -62,7 +62,7 @@ export default function MusicPlayer() {
           {/* Mute/Unmute Button */}
           <button
             onClick={toggleMute}
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl"
+            className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl active:scale-95"
             aria-label={isMuted ? 'Unmute music' : 'Mute music'}
           >
             <AnimatePresence mode="wait">
@@ -118,7 +118,7 @@ export default function MusicPlayer() {
                 duration: 2,
                 ease: 'easeOut',
               }}
-              className="absolute inset-0 rounded-full bg-accent"
+              className="pointer-events-none absolute inset-0 rounded-full bg-accent"
             />
           )}
         </div>
