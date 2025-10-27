@@ -62,7 +62,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 1 }}
-          className="mb-8 space-y-2"
+          className="mb-4 space-y-2"
         >
           <p
             className="text-lg tracking-widest text-gray-700"
