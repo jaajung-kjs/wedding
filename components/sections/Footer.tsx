@@ -102,7 +102,7 @@ export default function Footer() {
               <h3 className="text-lg font-semibold text-text-primary">{PROFILE.groom.title}</h3>
               <span className="text-base font-semibold text-accent">{PROFILE.groom.name}</span>
               <a
-                href={`https://open.kakao.com/me/${PROFILE.groom.kakaoId}`}
+                href={PROFILE.groom.kakaoLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent"
@@ -133,14 +133,16 @@ export default function Footer() {
             <div className="mb-2 flex items-center gap-2">
               <h3 className="text-lg font-semibold text-text-primary">{PROFILE.bride.title}</h3>
               <span className="text-base font-semibold text-accent">{PROFILE.bride.name}</span>
-              <a
-                href={`https://open.kakao.com/me/${PROFILE.bride.kakaoId}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent"
-              >
-                💬
-              </a>
+              {PROFILE.bride.kakaoLink && (
+                <a
+                  href={PROFILE.bride.kakaoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent"
+                >
+                  💬
+                </a>
+              )}
             </div>
             <div className="space-y-1 text-center text-sm text-text-secondary">
               <p>{PROFILE.bride.birth}</p>
