@@ -99,7 +99,7 @@ export default function Account() {
               </div>
 
               {/* Groom Father Account */}
-              <div>
+              <div className="border-b border-divider pb-4">
                 <div className="mb-2 flex items-center justify-between">
                   <div>
                     <p className="text-sm text-text-secondary">
@@ -114,6 +114,29 @@ export default function Account() {
                   </div>
                   <button
                     onClick={() => copyAccount(accounts.groomFather.account)}
+                    className="rounded-full bg-accent px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+                  >
+                    복사하기
+                  </button>
+                </div>
+              </div>
+
+              {/* Groom Mother Account */}
+              <div>
+                <div className="mb-2 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-text-secondary">
+                      신랑 모 {accounts.groomMother.holder}
+                    </p>
+                    <p className="font-semibold text-text-primary">
+                      {accounts.groomMother.bank}
+                    </p>
+                    <p className="text-sm text-text-primary">
+                      {accounts.groomMother.account}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => copyAccount(accounts.groomMother.account)}
                     className="rounded-full bg-accent px-4 py-2 text-sm text-white transition-transform hover:scale-105"
                   >
                     복사하기
@@ -187,11 +210,11 @@ export default function Account() {
               </div>
 
               {/* Bride Father Account */}
-              <div>
+              <div className="border-b border-divider pb-4">
                 <div className="mb-2 flex items-center justify-between">
                   <div>
                     <p className="text-sm text-text-secondary">
-                      신부 모 {accounts.brideFather.holder}
+                      신부 부 {accounts.brideFather.holder}
                     </p>
                     <p className="font-semibold text-text-primary">
                       {accounts.brideFather.bank}
@@ -202,6 +225,29 @@ export default function Account() {
                   </div>
                   <button
                     onClick={() => copyAccount(accounts.brideFather.account)}
+                    className="rounded-full bg-accent px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+                  >
+                    복사하기
+                  </button>
+                </div>
+              </div>
+
+              {/* Bride Mother Account */}
+              <div>
+                <div className="mb-2 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm text-text-secondary">
+                      신부 모 {accounts.brideMother.holder}
+                    </p>
+                    <p className="font-semibold text-text-primary">
+                      {accounts.brideMother.bank}
+                    </p>
+                    <p className="text-sm text-text-primary">
+                      {accounts.brideMother.account}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => copyAccount(accounts.brideMother.account)}
                     className="rounded-full bg-accent px-4 py-2 text-sm text-white transition-transform hover:scale-105"
                   >
                     복사하기
