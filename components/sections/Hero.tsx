@@ -39,7 +39,7 @@ export default function Hero() {
       </div>
 
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-white/80" />
+      <div className="absolute inset-0 bg-white/60" />
 
       {/* Content */}
       <motion.div
