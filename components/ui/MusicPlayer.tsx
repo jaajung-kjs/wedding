@@ -56,6 +56,7 @@ export default function MusicPlayer() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
         className="fixed bottom-6 right-6 z-50"
+        style={{ willChange: 'transform' }}
       >
         <div className="relative">
           {/* Mute/Unmute Button */}

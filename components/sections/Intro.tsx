@@ -79,7 +79,7 @@ export default function Intro() {
           transition={{ delay: 1, duration: 0.8 }}
           className="border-t border-divider pt-8"
         >
-          <p className="text-sm leading-loose text-text-primary">
+          <p className="whitespace-pre-line text-center text-sm leading-loose text-text-primary">
             {GREETING.parents}
           </p>
         </motion.div>

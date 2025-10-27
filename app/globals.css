@@ -33,6 +33,7 @@
 
 html {
   scroll-behavior: smooth;
+  overscroll-behavior: none; /* Prevent bounce effect on mobile */
 }
 
 body {
@@ -40,6 +41,11 @@ body {
   color: var(--text-primary);
   background: var(--background);
   overflow-x: hidden;
+
+  /* Mobile scroll optimization */
+  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
+  overscroll-behavior-y: none; /* Prevent vertical bounce */
+  touch-action: pan-y; /* Allow only vertical scrolling */
 }
 
 h1, h2, h3, h4, h5, h6 {
