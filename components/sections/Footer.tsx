@@ -25,6 +25,28 @@ export default function Footer() {
     return `${year}년 ${month}월 ${day}일 ${dayOfWeek} 오후 ${hours}시 ${minutes}분`;
   };
 
+  const calculateTimeTogether = () => {
+    const startDate = new Date('2015-05-26');
+    const today = new Date();
+
+    let years = today.getFullYear() - startDate.getFullYear();
+    let months = today.getMonth() - startDate.getMonth();
+    let days = today.getDate() - startDate.getDate();
+
+    if (days < 0) {
+      months--;
+      const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+      days += prevMonth.getDate();
+    }
+
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    return `${years}년 ${months}개월 ${days}일`;
+  };
+
   const shareKakao = () => {
     if (typeof window !== 'undefined' && window.Kakao) {
       if (!window.Kakao.isInitialized()) {
@@ -152,12 +174,25 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        {/* Message */}
+        {/* Time Together */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 1, duration: 0.8 }}
+          className="mb-6 text-center"
+        >
+          <p className="text-sm text-text-secondary">
+            함께한 시간 <span className="font-semibold text-text-primary">{calculateTimeTogether()}</span>
+          </p>
+        </motion.div>
+
+        {/* Message */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 1.2, duration: 0.8 }}
           className="mb-12 text-center"
         >
           <p className="whitespace-pre-line text-base font-medium text-text-primary">
