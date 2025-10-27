@@ -9,20 +9,32 @@ export default function Calendar() {
   const month = weddingDate.getMonth();
   const day = weddingDate.getDate();
 
-  // 2026년 2월은 28일까지
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-  const firstDayOfMonth = new Date(year, month, 1).getDay();
-
   const weekDays = ['일', '월', '화', '수', '목', '금', '토'];
   const weekDaysEn = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
+  // 1월 15일부터 2월 14일까지 표시
+  const startDate = new Date(year, 0, 15); // 1월 15일 (month는 0-based)
+  const endDate = new Date(year, 1, 14);   // 2월 14일
+
+  // 시작일의 요일 (일요일=0)
+  const firstDayOfWeek = startDate.getDay();
+
   // 달력 그리드 생성
   const calendarDays = [];
-  for (let i = 0; i < firstDayOfMonth; i++) {
+
+  // 시작일 앞의 빈 칸
+  for (let i = 0; i < firstDayOfWeek; i++) {
     calendarDays.push(null);
   }
-  for (let i = 1; i <= daysInMonth; i++) {
-    calendarDays.push(i);
+
+  // 1월 15일부터 31일까지
+  for (let i = 15; i <= 31; i++) {
+    calendarDays.push({ day: i, month: 1, isCurrentMonth: false });
+  }
+
+  // 2월 1일부터 14일까지
+  for (let i = 1; i <= 14; i++) {
+    calendarDays.push({ day: i, month: 2, isCurrentMonth: true });
   }
 
   const formatDateTime = () => {
@@ -105,37 +117,47 @@ export default function Calendar() {
 
           {/* Calendar Days */}
           <div className="grid grid-cols-7 gap-2">
-            {calendarDays.map((dayNum, index) => {
-              const isWeddingDay = dayNum === day;
+            {calendarDays.map((dayData, index) => {
+              const isWeddingDay = dayData && dayData.day === day && dayData.month === 2;
               const dayOfWeek = index % 7;
               const isSunday = dayOfWeek === 0;
               const isSaturday = dayOfWeek === 6;
+              const isFirstDayOfMonth = dayData && dayData.day === 1 && dayData.month === 2;
 
               return (
                 <div
                   key={index}
-                  className={`relative flex aspect-square items-center justify-center rounded-lg text-sm transition-all ${
-                    dayNum === null
+                  className={`relative flex aspect-square flex-col items-center justify-center rounded-lg text-sm transition-all ${
+                    dayData === null
                       ? ''
                       : isWeddingDay
                         ? 'bg-accent font-bold text-white shadow-md'
                         : 'hover:bg-white'
                   }`}
                 >
-                  {dayNum !== null && (
-                    <span
-                      className={
-                        isWeddingDay
-                          ? 'text-white'
-                          : isSunday
-                            ? 'text-red-500'
-                            : isSaturday
-                              ? 'text-blue-500'
-                              : 'text-text-primary'
-                      }
-                    >
-                      {dayNum}
-                    </span>
+                  {dayData !== null && (
+                    <>
+                      {isFirstDayOfMonth && (
+                        <span className="absolute -top-6 text-xs font-semibold text-accent">
+                          2월
+                        </span>
+                      )}
+                      <span
+                        className={
+                          isWeddingDay
+                            ? 'text-white'
+                            : isSunday
+                              ? 'text-red-500'
+                              : isSaturday
+                                ? 'text-blue-500'
+                                : dayData.month === 1
+                                  ? 'text-text-secondary/50'
+                                  : 'text-text-primary'
+                        }
+                      >
+                        {dayData.day}
+                      </span>
+                    </>
                   )}
                 </div>
               );
