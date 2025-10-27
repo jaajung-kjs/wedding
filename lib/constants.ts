@@ -120,7 +120,7 @@ export const PROFILE = {
     title: '신부',
     name: WEDDING_INFO.bride.name,
     phone: WEDDING_INFO.bride.phone,
-    kakaoLink: '',
+    kakaoLink: 'https://qr.kakao.com/talk/oozpmla6g3zWex2oCcljmTPCSFs-',
     birth: '96년 6월 14일',
     location: '경기도 성남',
     job: '수학강사',
