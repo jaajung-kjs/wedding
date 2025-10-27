@@ -32,7 +32,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   overscroll-behavior: none; /* Prevent bounce effect on mobile */
 }
 
@@ -52,12 +51,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', 'Nanum Myeongjo', serif;
 }
 
-/* Smooth Scrolling for Safari */
-@supports (-webkit-touch-callout: none) {
-  html {
-    scroll-behavior: auto;
-  }
-}
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
