@@ -8,7 +8,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex h-screen items-center justify-center overflow-hidden"
+      className="relative flex h-screen items-start justify-center overflow-hidden pt-20"
       style={{
         backgroundImage: 'url(/images/hero/couple-optimized.webp)',
         backgroundSize: 'cover',
@@ -47,14 +47,29 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="mt-8 text-white"
+          className="mt-6 text-white"
           style={{
             fontFamily: "'Dancing Script', cursive",
-            fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
+            fontSize: 'clamp(1.25rem, 4vw, 1.75rem)',
             textShadow: '0 2px 8px rgba(0,0,0,0.8)',
           }}
         >
           {groom.name} & {bride.name}
+        </motion.p>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 1 }}
+          className="mt-3 text-white"
+          style={{
+            fontSize: 'clamp(0.875rem, 3vw, 1.125rem)',
+            textShadow: '0 2px 8px rgba(0,0,0,0.8)',
+            letterSpacing: '0.05em',
+          }}
+        >
+          소중한 분들을 결혼식에 초대합니다
         </motion.p>
       </motion.div>
 
