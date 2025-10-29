@@ -17,6 +17,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: '김준성 ♥ 김여진 결혼합니다',
+        type: 'image/jpeg',
       }
     ],
     locale: 'ko_KR',
