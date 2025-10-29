@@ -1,13 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { WEDDING_INFO } from '@/lib/constants';
 
 export default function Calendar() {
+  const [daysLeft, setDaysLeft] = useState<number | null>(null);
+
   const weddingDate = new Date(WEDDING_INFO.date);
   const year = weddingDate.getFullYear();
   const month = weddingDate.getMonth();
   const day = weddingDate.getDate();
+
+  useEffect(() => {
+    // Calculate days left on client side only
+    const calculateDaysLeft = () => {
+      const today = new Date();
+      const diffTime = weddingDate.getTime() - today.getTime();
+      const diffDays = Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
+      setDaysLeft(diffDays);
+    };
+
+    calculateDaysLeft();
+  }, [weddingDate]);
 
   const weekDays = ['일', '월', '화', '수', '목', '금', '토'];
   const weekDaysEn = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -206,7 +221,7 @@ export default function Calendar() {
           <p className="text-base text-text-primary">
             준성 ♥ 여진 결혼식이{' '}
             <span className="font-semibold text-accent">
-              {Math.max(0, Math.ceil((weddingDate.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)))}일
+              {daysLeft !== null ? `${daysLeft}일` : '...'}
             </span>{' '}
             남았습니다
           </p>
