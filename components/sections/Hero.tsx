@@ -30,16 +30,18 @@ export default function Hero() {
           className="text-white"
           style={{
             fontFamily: "'Dancing Script', 'Great Vibes', cursive",
-            fontSize: 'clamp(3rem, 12vw, 7rem)',
             fontWeight: 700,
             lineHeight: 1.2,
             textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)',
             letterSpacing: '0.02em',
           }}
         >
-          We are getting
-          <br />
-          Married!
+          <div style={{ fontSize: 'clamp(3rem, 12vw, 7rem)', whiteSpace: 'nowrap' }}>
+            We are getting
+          </div>
+          <div style={{ fontSize: 'clamp(3rem, 12vw, 7rem)', whiteSpace: 'nowrap' }}>
+            Married!
+          </div>
         </h1>
 
         {/* Names */}
@@ -47,7 +49,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className="mt-6 text-white"
+          className="mt-3 text-white"
           style={{
             fontFamily: "'Dancing Script', cursive",
             fontSize: 'clamp(1.25rem, 4vw, 1.75rem)',
@@ -62,7 +64,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 1 }}
-          className="mt-3 text-white"
+          className="mt-1 text-white"
           style={{
             fontSize: 'clamp(0.875rem, 3vw, 1.125rem)',
             textShadow: '0 2px 8px rgba(0,0,0,0.8)',
