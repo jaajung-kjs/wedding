@@ -70,23 +70,10 @@ export default function Intro() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="border-t border-divider pt-8 pb-8"
+          className="border-t border-divider pt-8 pb-12"
         >
           <p className="whitespace-pre-line text-center text-sm leading-loose text-text-primary">
             {GREETING.parents}
-          </p>
-        </motion.div>
-
-        {/* Time Together */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.7, duration: 0.8 }}
-          className="mb-12 text-center"
-        >
-          <p className="text-sm text-text-secondary">
-            함께한 시간 <span className="font-semibold text-text-primary">{calculateTimeTogether()}</span>
           </p>
         </motion.div>
 
@@ -174,6 +161,19 @@ export default function Intro() {
             </div>
           </motion.div>
         </div>
+
+        {/* Time Together */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="mt-8 text-center"
+        >
+          <p className="text-sm text-text-secondary">
+            함께한 시간 <span className="font-semibold text-text-primary">{calculateTimeTogether()}</span>
+          </p>
+        </motion.div>
       </motion.div>
     </section>
   );
