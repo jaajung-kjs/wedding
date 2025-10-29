@@ -51,8 +51,8 @@ export default function Hero() {
           transition={{ delay: 0.5, duration: 1 }}
           className="mt-3 text-white"
           style={{
-            fontFamily: "'Dancing Script', cursive",
-            fontSize: 'clamp(1.25rem, 4vw, 1.75rem)',
+            fontFamily: "'Nanum Pen Script', cursive",
+            fontSize: 'clamp(1.5rem, 5vw, 2.25rem)',
             textShadow: '0 2px 8px rgba(0,0,0,0.8)',
           }}
         >
@@ -67,7 +67,7 @@ export default function Hero() {
           className="mt-1 text-white"
           style={{
             fontFamily: "'Nanum Pen Script', cursive",
-            fontSize: 'clamp(1rem, 3.5vw, 1.375rem)',
+            fontSize: 'clamp(1.25rem, 4.5vw, 1.75rem)',
             textShadow: '0 2px 8px rgba(0,0,0,0.8)',
             letterSpacing: '0.02em',
           }}
