@@ -66,9 +66,11 @@ export default function Intro() {
             className="flex flex-col items-center"
           >
             <div className="mb-3 h-32 w-32 overflow-hidden rounded-2xl bg-gray-200">
-              <div className="flex h-full items-center justify-center text-sm text-text-secondary">
-                Photo
-              </div>
+              <img
+                src="/images/profiles/groom.webp"
+                alt={`${PROFILE.groom.title} ${PROFILE.groom.name}`}
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="mb-2 flex items-center gap-2">
               <h3 className="text-lg font-semibold text-text-primary">{PROFILE.groom.title}</h3>
@@ -104,9 +106,11 @@ export default function Intro() {
             className="flex flex-col items-center"
           >
             <div className="mb-3 h-32 w-32 overflow-hidden rounded-2xl bg-gray-200">
-              <div className="flex h-full items-center justify-center text-sm text-text-secondary">
-                Photo
-              </div>
+              <img
+                src="/images/profiles/bride.webp"
+                alt={`${PROFILE.bride.title} ${PROFILE.bride.name}`}
+                className="h-full w-full object-cover"
+              />
             </div>
             <div className="mb-2 flex items-center gap-2">
               <h3 className="text-lg font-semibold text-text-primary">{PROFILE.bride.title}</h3>
