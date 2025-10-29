@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { WEDDING_INFO } from '@/lib/constants';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://wedding-jaajung-kjs.vercel.app';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://wedding-xi-ruby.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
