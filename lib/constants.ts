@@ -157,7 +157,7 @@ export const PROFILE = {
     kakaoLink: 'https://qr.kakao.com/talk/oozpmla6g3zWex2oCcljmTPCSFs-',
     birth: '96년 6월 14일',
     location: '경기도 성남',
-    job: '고등부 수학 강사',
+    job: '수학 강사',
   },
   message: '저희 행복하게 잘 살겠습니다🖤',
 };
