@@ -1,14 +1,26 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { GALLERY_IMAGES } from '@/lib/constants';
+
+const IMAGES_PER_PAGE = 9;
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
-  const openLightbox = (index: number) => {
-    setSelectedImage(index);
+  const totalPages = Math.ceil(GALLERY_IMAGES.length / IMAGES_PER_PAGE);
+  const startIndex = currentPage * IMAGES_PER_PAGE;
+  const endIndex = Math.min(startIndex + IMAGES_PER_PAGE, GALLERY_IMAGES.length);
+  const currentImages = GALLERY_IMAGES.slice(startIndex, endIndex);
+
+  const openLightbox = (pageIndex: number) => {
+    // Convert page-relative index to global index
+    const globalIndex = startIndex + pageIndex;
+    setSelectedImage(globalIndex);
   };
 
   const closeLightbox = () => {
@@ -24,6 +36,46 @@ export default function Gallery() {
   const goToNext = () => {
     if (selectedImage !== null && selectedImage < GALLERY_IMAGES.length - 1) {
       setSelectedImage(selectedImage + 1);
+    }
+  };
+
+  const goToPreviousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const goToNextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  // Swipe gesture handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const swipeDistance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+      if (swipeDistance > 0) {
+        // Swiped left - go to next page
+        goToNextPage();
+      } else {
+        // Swiped right - go to previous page
+        goToPreviousPage();
+      }
     }
   };
 
@@ -54,10 +106,13 @@ export default function Gallery() {
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.8 }}
           className="grid grid-cols-3 gap-1"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
-          {GALLERY_IMAGES.map((image, index) => (
+          {currentImages.map((image, index) => (
             <motion.div
-              key={index}
+              key={startIndex + index}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -67,10 +122,79 @@ export default function Gallery() {
             >
               {/* Placeholder */}
               <div className="flex h-full items-center justify-center bg-gray-100 text-sm text-text-secondary transition-all group-hover:bg-gray-200">
-                Photo {index + 1}
+                Photo {startIndex + index + 1}
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Pagination Controls */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="mt-8 flex items-center justify-center gap-4"
+        >
+          {/* Previous Button */}
+          <button
+            onClick={goToPreviousPage}
+            disabled={currentPage === 0}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-text-primary shadow-sm transition-all hover:scale-105 hover:shadow-md disabled:opacity-30 disabled:hover:scale-100"
+            aria-label="Previous page"
+          >
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          {/* Page Indicators */}
+          <div className="flex gap-2">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToPage(index)}
+                className={`h-2 rounded-full transition-all ${
+                  index === currentPage
+                    ? 'w-8 bg-accent'
+                    : 'w-2 bg-gray-300 hover:bg-gray-400'
+                }`}
+                aria-label={`Go to page ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Next Button */}
+          <button
+            onClick={goToNextPage}
+            disabled={currentPage === totalPages - 1}
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-text-primary shadow-sm transition-all hover:scale-105 hover:shadow-md disabled:opacity-30 disabled:hover:scale-100"
+            aria-label="Next page"
+          >
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
         </motion.div>
 
         {/* Instruction Text */}
@@ -78,8 +202,8 @@ export default function Gallery() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-6 text-center text-sm text-text-secondary"
+          transition={{ delay: 0.8, duration: 0.8 }}
+          className="mt-4 text-center text-sm text-text-secondary"
         >
           사진을 클릭하시면 전체 화면 보기가 가능합니다
         </motion.p>

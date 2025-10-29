@@ -101,6 +101,29 @@ export const GALLERY_IMAGES = [
   '/images/gallery/7.jpg',
   '/images/gallery/8.jpg',
   '/images/gallery/9.jpg',
+  '/images/gallery/10.jpg',
+  '/images/gallery/11.jpg',
+  '/images/gallery/12.jpg',
+  '/images/gallery/13.jpg',
+  '/images/gallery/14.jpg',
+  '/images/gallery/15.jpg',
+  '/images/gallery/16.jpg',
+  '/images/gallery/17.jpg',
+  '/images/gallery/18.jpg',
+  '/images/gallery/19.jpg',
+  '/images/gallery/20.jpg',
+  '/images/gallery/21.jpg',
+  '/images/gallery/22.jpg',
+  '/images/gallery/23.jpg',
+  '/images/gallery/24.jpg',
+  '/images/gallery/25.jpg',
+  '/images/gallery/26.jpg',
+  '/images/gallery/27.jpg',
+  '/images/gallery/28.jpg',
+  '/images/gallery/29.jpg',
+  '/images/gallery/30.jpg',
+  '/images/gallery/31.jpg',
+  '/images/gallery/32.jpg',
 ];
 
 // 교통편 안내
@@ -112,7 +135,7 @@ export const TRANSPORTATION = {
     '간선: 140, 314, 400, 402, 421, 440, 441, 452, 470, 641, 741, 917',
     '직행: 1550, 1570, 3002, 3007, 3030, 3100, 4401, 4402, 9700',
   ],
-  parking: '도곡동 캠코 양재타워 주차장 인포데스크에서 차량번호 등록하고\n무료주차 2시간',
+  parking: '도곡동 캠코 양재타워 주차장 인포데스크에서 차량번호 등록\n무료주차 2시간',
 };
 
 // 프로필 정보
