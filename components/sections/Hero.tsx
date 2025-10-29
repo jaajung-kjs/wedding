@@ -4,28 +4,11 @@ import { motion } from 'framer-motion';
 import { WEDDING_INFO } from '@/lib/constants';
 
 export default function Hero() {
-  const { groom, bride, date, venue } = WEDDING_INFO;
-  const weddingDate = new Date(date);
-
-  const formatDate = () => {
-    const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-    const year = weddingDate.getFullYear();
-    const month = String(weddingDate.getMonth() + 1).padStart(2, '0');
-    const day = String(weddingDate.getDate()).padStart(2, '0');
-    const dayOfWeek = days[weddingDate.getDay()];
-
-    return `${year}. ${month}. ${day} ${dayOfWeek}`;
-  };
-
-  const formatTime = () => {
-    const hours = weddingDate.getHours();
-    const minutes = String(weddingDate.getMinutes()).padStart(2, '0');
-    return `${hours} : ${minutes}`;
-  };
+  const { groom, bride } = WEDDING_INFO;
 
   return (
     <section
-      className="relative flex h-screen items-start justify-center overflow-hidden pt-16"
+      className="relative flex h-screen items-center justify-center overflow-hidden"
       style={{
         backgroundImage: 'url(/images/hero/couple-optimized.webp)',
         backgroundSize: 'cover',
@@ -33,60 +16,45 @@ export default function Hero() {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-white/0" />
+      {/* Background overlay for better text visibility */}
+      <div className="absolute inset-0 bg-black/20" />
 
-      {/* Content */}
+      {/* Main Heading */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
         className="relative z-10 px-6 text-center"
       >
-        {/* Names */}
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 1 }}
-          className="mb-8 whitespace-nowrap font-serif font-bold tracking-wide text-white"
+        <h1
+          className="text-white"
           style={{
-            fontSize: 'clamp(1.75rem, 8vw, 3rem)',
-            textShadow: '0 2px 8px rgba(0,0,0,0.6)'
+            fontFamily: "'Dancing Script', 'Great Vibes', cursive",
+            fontSize: 'clamp(3rem, 12vw, 7rem)',
+            fontWeight: 700,
+            lineHeight: 1.2,
+            textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)',
+            letterSpacing: '0.02em',
           }}
         >
-          {groom.name} ♥ {bride.name}
-        </motion.h1>
+          We are getting
+          <br />
+          Married!
+        </h1>
 
-        {/* Date & Time */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 1 }}
-          className="mb-4 space-y-2"
-        >
-          <p
-            className="text-lg tracking-widest text-white"
-            style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}
-          >
-            {formatDate()}
-          </p>
-          <p
-            className="font-serif text-3xl font-light tracking-wider text-white"
-            style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}
-          >
-            {formatTime()}
-          </p>
-        </motion.div>
-
-        {/* Venue */}
+        {/* Names */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.9, duration: 1 }}
-          className="text-lg text-white"
-          style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="mt-8 text-white"
+          style={{
+            fontFamily: "'Dancing Script', cursive",
+            fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
+            textShadow: '0 2px 8px rgba(0,0,0,0.8)',
+          }}
         >
-          {venue.name}
+          {groom.name} & {bride.name}
         </motion.p>
       </motion.div>
 
@@ -94,7 +62,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
+        transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       >
         <motion.div
