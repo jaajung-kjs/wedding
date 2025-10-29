@@ -6,7 +6,7 @@ import fs from 'fs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const sourceFile = '/Users/jsk/Downloads/KakaoTalk_Photo_2025-10-29-13-25-37.jpeg';
+const sourceFile = '/Users/jsk/Downloads/KakaoTalk_Photo_2025-10-29-14-28-05.jpeg';
 const targetFile = join(__dirname, 'public', 'images', 'og-image.jpg');
 
 async function optimizeOGImage() {
