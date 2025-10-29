@@ -15,7 +15,8 @@ export const WEDDING_INFO = {
   date: '2026-02-01T12:30:00',
   venue: {
     name: '브라이드밸리',
-    address: '서울 강남구 강남대로 262 B1층 브라이드밸리 웨딩홀',
+    address: '서울 강남구 강남대로 262 B1층',
+    address2: '브라이드밸리 웨딩홀 단독홀',
     floor: '지하1층',
     phone: '02-2058-0406',
     lat: 37.4869,

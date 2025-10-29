@@ -65,19 +65,20 @@ export default function Location() {
   }, [venue.lat, venue.lng, venue.name]);
 
   const copyAddress = () => {
-    navigator.clipboard.writeText(venue.address);
+    navigator.clipboard.writeText(`${venue.address} ${venue.address2}`);
     alert('주소가 복사되었습니다');
   };
 
   const openNaverMap = () => {
+    const fullAddress = `${venue.address} ${venue.address2}`;
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
       window.location.href = `nmap://place?lat=${venue.lat}&lng=${venue.lng}&name=${encodeURIComponent(venue.name)}&appname=com.wedding`;
       setTimeout(() => {
-        window.open(`https://map.naver.com/p/search/${encodeURIComponent(venue.address)}`, '_blank');
+        window.open(`https://map.naver.com/p/search/${encodeURIComponent(fullAddress)}`, '_blank');
       }, 1000);
     } else {
-      window.open(`https://map.naver.com/p/search/${encodeURIComponent(venue.address)}`, '_blank');
+      window.open(`https://map.naver.com/p/search/${encodeURIComponent(fullAddress)}`, '_blank');
     }
   };
 
@@ -138,22 +139,25 @@ export default function Location() {
           </h3>
           <button
             onClick={copyAddress}
-            className="group inline-flex items-center gap-2 text-text-secondary transition-colors hover:text-text-primary"
+            className="group inline-flex flex-col items-center gap-0.5 text-text-secondary transition-colors hover:text-text-primary"
           >
-            <span>{venue.address}</span>
-            <svg
-              className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-              />
-            </svg>
+            <div className="flex items-center gap-2">
+              <span className="whitespace-nowrap">{venue.address}</span>
+              <svg
+                className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <span className="whitespace-nowrap">{venue.address2}</span>
           </button>
         </motion.div>
 
