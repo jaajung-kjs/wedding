@@ -27,13 +27,13 @@ export default function Hero() {
         className="relative z-10 px-6 text-center"
       >
         <h1
-          className="text-white"
           style={{
             fontFamily: "'Dancing Script', 'Great Vibes', cursive",
             fontWeight: 700,
             lineHeight: 1.2,
             textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)',
             letterSpacing: '0.02em',
+            color: '#FFB7C5',
           }}
         >
           <div style={{ fontSize: 'clamp(3rem, 12vw, 7rem)', whiteSpace: 'nowrap' }}>
@@ -66,9 +66,10 @@ export default function Hero() {
           transition={{ delay: 0.7, duration: 1 }}
           className="mt-1 text-white"
           style={{
-            fontSize: 'clamp(0.875rem, 3vw, 1.125rem)',
+            fontFamily: "'Nanum Pen Script', cursive",
+            fontSize: 'clamp(1rem, 3.5vw, 1.375rem)',
             textShadow: '0 2px 8px rgba(0,0,0,0.8)',
-            letterSpacing: '0.05em',
+            letterSpacing: '0.02em',
           }}
         >
           소중한 분들을 결혼식에 초대합니다
