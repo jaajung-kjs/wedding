@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { GALLERY_IMAGES } from '@/lib/constants';
 
 const IMAGES_PER_PAGE = 9;
@@ -9,8 +9,6 @@ const IMAGES_PER_PAGE = 9;
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
 
   const totalPages = Math.ceil(GALLERY_IMAGES.length / IMAGES_PER_PAGE);
   const startIndex = currentPage * IMAGES_PER_PAGE;
@@ -18,7 +16,6 @@ export default function Gallery() {
   const currentImages = GALLERY_IMAGES.slice(startIndex, endIndex);
 
   const openLightbox = (pageIndex: number) => {
-    // Convert page-relative index to global index
     const globalIndex = startIndex + pageIndex;
     setSelectedImage(globalIndex);
   };
@@ -55,30 +52,6 @@ export default function Gallery() {
     setCurrentPage(page);
   };
 
-  // Swipe gesture handlers
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    const swipeDistance = touchStartX.current - touchEndX.current;
-    const minSwipeDistance = 50;
-
-    if (Math.abs(swipeDistance) > minSwipeDistance) {
-      if (swipeDistance > 0) {
-        // Swiped left - go to next page
-        goToNextPage();
-      } else {
-        // Swiped right - go to previous page
-        goToPreviousPage();
-      }
-    }
-  };
-
   return (
     <section className="bg-secondary py-20 px-4">
       <motion.div
@@ -106,9 +79,6 @@ export default function Gallery() {
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.8 }}
           className="grid grid-cols-3 gap-1"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
         >
           {currentImages.map((image, index) => (
             <motion.div
@@ -120,10 +90,11 @@ export default function Gallery() {
               onClick={() => openLightbox(index)}
               className="group relative aspect-[3/4] cursor-pointer overflow-hidden bg-white"
             >
-              {/* Placeholder */}
-              <div className="flex h-full items-center justify-center bg-gray-100 text-sm text-text-secondary transition-all group-hover:bg-gray-200">
-                Photo {startIndex + index + 1}
-              </div>
+              <img
+                src={image}
+                alt={`Gallery photo ${startIndex + index + 1}`}
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
             </motion.div>
           ))}
         </motion.div>
@@ -293,10 +264,12 @@ export default function Gallery() {
             className="relative mx-4 max-h-[90vh] max-w-[90vw]"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Placeholder */}
-            <div className="flex h-96 w-96 items-center justify-center rounded-lg bg-gray-800 text-white">
-              <p>Photo {selectedImage + 1}</p>
-            </div>
+            {/* Image */}
+            <img
+              src={GALLERY_IMAGES[selectedImage]}
+              alt={`Gallery photo ${selectedImage + 1}`}
+              className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain"
+            />
 
             {/* Counter */}
             <div className="mt-4 text-center text-sm text-white">
