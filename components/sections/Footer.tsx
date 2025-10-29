@@ -51,36 +51,12 @@ export default function Footer() {
           <div className="text-5xl">💐</div>
         </motion.div>
 
-        {/* Thank You Message */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="mb-12 font-serif text-3xl font-semibold text-text-primary"
-        >
-          Thank you
-        </motion.h2>
-
-        {/* Time Together */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="mb-6 text-center"
-        >
-          <p className="text-sm text-text-secondary">
-            함께한 시간 <span className="font-semibold text-text-primary">{calculateTimeTogether()}</span>
-          </p>
-        </motion.div>
-
         {/* Message */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.8 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
           className="mb-12 text-center"
         >
           <p className="whitespace-pre-line text-base font-medium text-text-primary">
@@ -93,7 +69,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 1.0, duration: 0.8 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
           className="mb-12 flex justify-center"
         >
           <button
@@ -124,7 +100,7 @@ export default function Footer() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 1, duration: 0.8 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
           className="text-xs text-text-secondary"
         >
           © 2026 Wedding Invitation

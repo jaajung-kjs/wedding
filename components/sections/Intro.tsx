@@ -6,6 +6,28 @@ import { GREETING, WEDDING_INFO, PROFILE } from '@/lib/constants';
 export default function Intro() {
   const { groom, bride } = WEDDING_INFO;
 
+  const calculateTimeTogether = () => {
+    const startDate = new Date('2015-05-26');
+    const today = new Date();
+
+    let years = today.getFullYear() - startDate.getFullYear();
+    let months = today.getMonth() - startDate.getMonth();
+    let days = today.getDate() - startDate.getDate();
+
+    if (days < 0) {
+      months--;
+      const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+      days += prevMonth.getDate();
+    }
+
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    return `${years}년 ${months}개월 ${days}일`;
+  };
+
   return (
     <section className="bg-secondary py-20 px-6">
       <motion.div
@@ -48,10 +70,23 @@ export default function Intro() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="border-t border-divider pt-8 pb-12"
+          className="border-t border-divider pt-8 pb-8"
         >
           <p className="whitespace-pre-line text-center text-sm leading-loose text-text-primary">
             {GREETING.parents}
+          </p>
+        </motion.div>
+
+        {/* Time Together */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.7, duration: 0.8 }}
+          className="mb-12 text-center"
+        >
+          <p className="text-sm text-text-secondary">
+            함께한 시간 <span className="font-semibold text-text-primary">{calculateTimeTogether()}</span>
           </p>
         </motion.div>
 

@@ -51,7 +51,7 @@ export default function Account() {
               <div className="flex items-center gap-3">
                 <span className="text-2xl">👔</span>
                 <span className="font-semibold text-text-primary">
-                  신랑 측 계좌 정보
+                  신랑측
                 </span>
               </div>
               <svg
@@ -81,19 +81,28 @@ export default function Account() {
               <div className="border-b border-divider pb-4">
                 <div className="mb-2 flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-text-secondary">신랑 {groom.name}</p>
-                    <p className="font-semibold text-text-primary">
-                      {accounts.groom.bank}
-                    </p>
+                    <p className="mb-1 text-sm text-text-secondary">신랑 {groom.name}</p>
                     <p className="text-sm text-text-primary">
-                      {accounts.groom.account}
+                      {accounts.groom.bank} {accounts.groom.account}
                     </p>
                   </div>
                   <button
                     onClick={() => copyAccount(accounts.groom.account)}
-                    className="rounded-full bg-accent px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-accent transition-all hover:bg-accent hover:text-white"
                   >
-                    복사하기
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      />
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -102,21 +111,30 @@ export default function Account() {
               <div className="border-b border-divider pb-4">
                 <div className="mb-2 flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-text-secondary">
+                    <p className="mb-1 text-sm text-text-secondary">
                       신랑 부 {accounts.groomFather.holder}
                     </p>
-                    <p className="font-semibold text-text-primary">
-                      {accounts.groomFather.bank}
-                    </p>
                     <p className="text-sm text-text-primary">
-                      {accounts.groomFather.account}
+                      {accounts.groomFather.bank} {accounts.groomFather.account}
                     </p>
                   </div>
                   <button
                     onClick={() => copyAccount(accounts.groomFather.account)}
-                    className="rounded-full bg-accent px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-accent transition-all hover:bg-accent hover:text-white"
                   >
-                    복사하기
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      />
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -125,21 +143,30 @@ export default function Account() {
               <div>
                 <div className="mb-2 flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-text-secondary">
+                    <p className="mb-1 text-sm text-text-secondary">
                       신랑 모 {accounts.groomMother.holder}
                     </p>
-                    <p className="font-semibold text-text-primary">
-                      {accounts.groomMother.bank}
-                    </p>
                     <p className="text-sm text-text-primary">
-                      {accounts.groomMother.account}
+                      {accounts.groomMother.bank} {accounts.groomMother.account}
                     </p>
                   </div>
                   <button
                     onClick={() => copyAccount(accounts.groomMother.account)}
-                    className="rounded-full bg-accent px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-accent transition-all hover:bg-accent hover:text-white"
                   >
-                    복사하기
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      />
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -162,7 +189,7 @@ export default function Account() {
               <div className="flex items-center gap-3">
                 <span className="text-2xl">👰</span>
                 <span className="font-semibold text-text-primary">
-                  신부 측 계좌 정보
+                  신부측
                 </span>
               </div>
               <svg
@@ -192,19 +219,28 @@ export default function Account() {
               <div className="border-b border-divider pb-4">
                 <div className="mb-2 flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-text-secondary">신부 {bride.name}</p>
-                    <p className="font-semibold text-text-primary">
-                      {accounts.bride.bank}
-                    </p>
+                    <p className="mb-1 text-sm text-text-secondary">신부 {bride.name}</p>
                     <p className="text-sm text-text-primary">
-                      {accounts.bride.account}
+                      {accounts.bride.bank} {accounts.bride.account}
                     </p>
                   </div>
                   <button
                     onClick={() => copyAccount(accounts.bride.account)}
-                    className="rounded-full bg-accent px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-accent transition-all hover:bg-accent hover:text-white"
                   >
-                    복사하기
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      />
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -213,21 +249,30 @@ export default function Account() {
               <div className="border-b border-divider pb-4">
                 <div className="mb-2 flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-text-secondary">
+                    <p className="mb-1 text-sm text-text-secondary">
                       신부 부 {accounts.brideFather.holder}
                     </p>
-                    <p className="font-semibold text-text-primary">
-                      {accounts.brideFather.bank}
-                    </p>
                     <p className="text-sm text-text-primary">
-                      {accounts.brideFather.account}
+                      {accounts.brideFather.bank} {accounts.brideFather.account}
                     </p>
                   </div>
                   <button
                     onClick={() => copyAccount(accounts.brideFather.account)}
-                    className="rounded-full bg-accent px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-accent transition-all hover:bg-accent hover:text-white"
                   >
-                    복사하기
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      />
+                    </svg>
                   </button>
                 </div>
               </div>
@@ -236,21 +281,30 @@ export default function Account() {
               <div>
                 <div className="mb-2 flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-text-secondary">
+                    <p className="mb-1 text-sm text-text-secondary">
                       신부 모 {accounts.brideMother.holder}
                     </p>
-                    <p className="font-semibold text-text-primary">
-                      {accounts.brideMother.bank}
-                    </p>
                     <p className="text-sm text-text-primary">
-                      {accounts.brideMother.account}
+                      {accounts.brideMother.bank} {accounts.brideMother.account}
                     </p>
                   </div>
                   <button
                     onClick={() => copyAccount(accounts.brideMother.account)}
-                    className="rounded-full bg-accent px-4 py-2 text-sm text-white transition-transform hover:scale-105"
+                    className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-accent transition-all hover:bg-accent hover:text-white"
                   >
-                    복사하기
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      />
+                    </svg>
                   </button>
                 </div>
               </div>

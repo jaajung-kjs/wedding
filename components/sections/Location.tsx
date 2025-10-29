@@ -134,7 +134,7 @@ export default function Location() {
           className="mb-6 text-center"
         >
           <h3 className="mb-3 text-xl font-semibold text-text-primary">
-            {venue.name} ⛪
+            {venue.name} 💒
           </h3>
           <button
             onClick={copyAddress}
@@ -234,7 +234,7 @@ export default function Location() {
           {/* Parking */}
           <div className="text-center">
             <h4 className="mb-3 font-semibold text-text-primary">🚗 자차</h4>
-            <p className="text-sm leading-relaxed text-text-secondary">
+            <p className="whitespace-pre-line text-sm leading-relaxed text-text-secondary">
               {TRANSPORTATION.parking}
             </p>
           </div>
