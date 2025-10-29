@@ -49,7 +49,7 @@ export default function Account() {
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <span className="text-2xl">👔</span>
+                <span className="text-2xl">🤵‍♂️</span>
                 <span className="font-semibold text-text-primary">
                   신랑측
                 </span>

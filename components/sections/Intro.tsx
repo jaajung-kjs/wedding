@@ -171,7 +171,7 @@ export default function Intro() {
           className="mt-8 text-center"
         >
           <p className="text-sm text-text-secondary">
-            함께한 시간 <span className="font-semibold text-text-primary">{calculateTimeTogether()}</span>
+            함께한 시간 <span className="font-semibold text-text-primary">{calculateTimeTogether()}</span> 💕
           </p>
         </motion.div>
       </motion.div>
