@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Auto-play on mount (muted by default for browser policies)
+  // Auto-play on mount (unmuted by default)
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.muted = true;
+      audioRef.current.muted = false;
       audioRef.current.play().catch(() => {
         // Auto-play failed, user interaction required
         setIsPlaying(false);
@@ -25,11 +25,6 @@ export default function MusicPlayer() {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
-        // Unmute on first user interaction
-        if (isMuted) {
-          audioRef.current.muted = false;
-          setIsMuted(false);
-        }
         audioRef.current.play();
       }
       setIsPlaying(!isPlaying);
