@@ -45,9 +45,9 @@ export default function MusicPlayer() {
 
   return (
     <>
-      {/* Audio Element (placeholder URL) */}
+      {/* Audio Element */}
       <audio ref={audioRef} loop>
-        <source src="/audio/wedding-music.mp3" type="audio/mpeg" />
+        <source src="/audio/background-music.mp3" type="audio/mpeg" />
       </audio>
 
       {/* Music Control Button */}
