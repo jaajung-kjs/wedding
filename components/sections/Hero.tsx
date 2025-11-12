@@ -1,15 +1,26 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { WEDDING_INFO } from '@/lib/constants';
 
 export default function Hero() {
   const { groom, bride } = WEDDING_INFO;
+  const [heroHeight, setHeroHeight] = useState('100vh');
+
+  useEffect(() => {
+    // Fix height on initial load (before any scroll)
+    const fixedHeight = window.innerHeight;
+    setHeroHeight(`${fixedHeight}px`);
+  }, []);
 
   return (
     <section
-      className="relative flex h-screen items-start justify-center overflow-hidden pt-8"
+      className="relative flex items-start justify-center overflow-hidden pt-8"
       style={{
+        height: heroHeight,
+        minHeight: heroHeight,
+        maxHeight: heroHeight,
         backgroundImage: 'url(/images/hero/couple-optimized.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
