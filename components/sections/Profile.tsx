@@ -34,7 +34,6 @@ export default function Profile() {
       <div className="space-y-1 text-center text-sm text-text-secondary">
         <p>{person.birth}</p>
         <p>{person.location}</p>
-        <p>{person.job}</p>
       </div>
     </motion.div>
   );

@@ -115,7 +115,6 @@ export default function Intro() {
             <div className="space-y-1 text-center text-sm text-text-secondary">
               <p>{PROFILE.groom.birth}</p>
               <p>{PROFILE.groom.location}</p>
-              <p>{PROFILE.groom.job}</p>
             </div>
           </motion.div>
 
@@ -157,7 +156,6 @@ export default function Intro() {
             <div className="space-y-1 text-center text-sm text-text-secondary">
               <p>{PROFILE.bride.birth}</p>
               <p>{PROFILE.bride.location}</p>
-              <p>{PROFILE.bride.job}</p>
             </div>
           </motion.div>
         </div>
