@@ -12,29 +12,35 @@ export default function MusicPlayer() {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.muted = false;
-      audioRef.current.play().catch(() => {
-        // Auto-play failed, user interaction required
-        setIsPlaying(false);
-      });
-      setIsPlaying(true);
+      audioRef.current.play()
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch(() => {
+          // Auto-play failed (iOS Safari), user interaction required
+          setIsPlaying(false);
+        });
     }
   }, []);
 
-  const togglePlay = () => {
+  // Unified button handler: play if not playing, toggle mute if playing
+  const handleButtonClick = () => {
     if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
+      if (!isPlaying) {
+        // Start playing (for iOS Safari)
+        audioRef.current.play()
+          .then(() => {
+            setIsPlaying(true);
+            setIsMuted(false);
+          })
+          .catch((error) => {
+            console.error('Failed to play audio:', error);
+          });
       } else {
-        audioRef.current.play();
+        // Toggle mute/unmute
+        audioRef.current.muted = !isMuted;
+        setIsMuted(!isMuted);
       }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const toggleMute = () => {
-    if (audioRef.current) {
-      audioRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
     }
   };
 
@@ -54,14 +60,45 @@ export default function MusicPlayer() {
         style={{ willChange: 'transform' }}
       >
         <div className="relative">
-          {/* Mute/Unmute Button */}
+          {/* Music Control Button */}
           <button
-            onClick={toggleMute}
+            onClick={handleButtonClick}
             className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-lg transition-all hover:scale-110 hover:shadow-xl active:scale-95"
-            aria-label={isMuted ? 'Unmute music' : 'Mute music'}
+            aria-label={
+              !isPlaying
+                ? 'Play music'
+                : isMuted
+                  ? 'Unmute music'
+                  : 'Mute music'
+            }
           >
             <AnimatePresence mode="wait">
-              {isMuted ? (
+              {!isPlaying ? (
+                <motion.svg
+                  key="play"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </motion.svg>
+              ) : isMuted ? (
                 <motion.svg
                   key="muted"
                   initial={{ rotate: -90, opacity: 0 }}
