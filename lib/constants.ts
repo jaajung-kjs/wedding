@@ -45,7 +45,7 @@ export const WEDDING_INFO = {
     },
     brideFather: {
       bank: '기업은행',
-      account: '010-8745-7175',
+      account: '341-083101-01-015',
       holder: '김길찬',
     },
     brideMother: {
