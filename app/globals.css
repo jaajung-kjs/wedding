@@ -40,7 +40,7 @@ body {
   /* Mobile scroll optimization */
   -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
   overscroll-behavior-y: none; /* Prevent vertical bounce */
-  touch-action: pan-y; /* Allow only vertical scrolling */
+  touch-action: manipulation; /* Enable zoom and remove tap delay */
 }
 
 h1, h2, h3, h4, h5, h6 {
